@@ -1,0 +1,205 @@
+body {
+    background: #f9fafd;
+    font-family: Roboto, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.header-container {
+    text-align: center;
+    padding: 10px;
+}
+
+.layout-container {
+    /* display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 95vh; */
+    height: 95vh;
+    display: grid;
+    grid-template-columns: 15% 70% 15%;
+    grid-gap: 1em;
+    /* Modified the display, I work better with GRID in long term */
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+  
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ffbe0b;
+    transition: .4s;
+}
+  
+.slider:before {
+    font-family: FontAwesome;
+    position: absolute;
+    content: "\f185";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+input:checked + .slider:before {
+    content: "\f186";
+}
+  
+input:checked + .slider {
+    background-color: #000000;
+}
+  
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+  
+.slider.round {
+    border-radius: 34px;
+}
+  
+.slider.round:before {
+    border-radius: 50%;
+} 
+
+/* From here starts the work  */ 
+.header-container{
+    width: 100%;
+    height: 5em;
+    align-self: center;
+    justify-self: center;
+    padding: 0;
+    margin:0;
+    z-index: -1;
+
+}
+.nav{
+    height: 5em;
+    position: fixed;
+    width: 100%;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    background-color: white;
+}
+.nav ul{
+    padding: 0 !important;
+    display: grid;
+    grid-template-columns: 15% 70% 15%;
+    align-items: center;
+}
+
+.nav li{
+    list-style-type: none;
+}
+.nav li a{
+    text-decoration: none;
+}
+.middle{
+    grid-column-start: 2;
+    text-align: center;
+}
+.middle ol{
+    list-style-type: none;
+}
+.left{
+    position: fixed;
+    width: 15%;
+    border-right: 3px solid lightgray;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    height: 100%;
+}
+.left ul li{
+    list-style-type: none;
+    padding: 5%;
+    padding-left: 0 !important;
+
+}
+.left ul li i:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+#float_left{
+    float: left;
+}
+.button-load{
+    appearance: none;
+  background-color: #e5da86;
+  border: 1px solid rgba(27, 31, 35, 0.15);
+  border-radius: 6px;
+  box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+  box-sizing: border-box;
+  color: #24292E;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 14px;
+  line-height: 20px;
+  list-style: none;
+  padding: 6px 16px;
+  position: relative;
+  transition: background-color 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+  white-space: nowrap;
+  word-wrap: break-word;
+}
+
+
+  
+  .dark-mode {
+    background-color: #333;
+    color: #f2f2f2;
+  }
+
+@media (max-width: 500px) {
+    .nav{
+        position: relative;
+        padding-top: 10px;
+    }
+    .nav .switch{
+        display: none;
+    }
+    .nav_logo{
+        font-size: 15px;
+        padding-left: 1em;
+    }
+    .nav_profile img{
+        height: 40px;
+        width: 40px;
+    }
+
+    .left{
+        position: relative;
+        width: 100%;
+        font-size: 0.7em;
+        text-align: center;
+    }
+    .left li{
+        padding: 10px !important;
+    }
+
+    .layout-container{
+        grid-template-columns: 0% 100% 0%;
+    }
+    .layout-container ol{
+        padding: 0 !important;
+    }
+}
+  

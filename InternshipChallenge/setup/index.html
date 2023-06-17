@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Frontend challenge</title>
+    <meta name="author" content="" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet" href="script.js">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://embedsocial.com/cdn/fonts/roboto/stylesheet.css"
+      rel="stylesheet"
+    />
+	<script src="https://kit.fontawesome.com/2011dbae06.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="header-container">
+		<div class="nav">
+			<nav>
+			  <ul>
+				<li>
+				  <a href="#" class="nav_logo">
+					<i class="fa-brands fa-instagram" style="text-decoration:none; color:rgb(255, 136, 0); font-size: 1.5em;"> &nbsp; SocialGram</i></a>
+				</li>
+				<li>
+
+					<label class="switch">
+						<input type="checkbox" id="changeTheme" />
+						<span class="slider round"></span>
+					  </label>
+
+				</li>
+				
+				<li>
+				  <a href="#" class="nav_profile"><img src="https://images.pexels.com/photos/3763188/pexels-photo-3763188.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" style="border-radius: 100%" height="60px" width="60px"></a>
+				</li>
+			  </ul>
+			</nav>
+		  </div>
+		
+    </div>
+    
+	<div class="left">
+		<ul>
+			  <li>
+				  <i class="fa-solid fa-house"> &nbsp;Home
+			  </i>
+			  </li>
+					
+			  <li>
+				  <i class="fa-solid fa-magnifying-glass">&nbsp;Search</i>
+			  </li>
+
+			  <li>
+				  <i class="fa-solid fa-heart"> &nbsp;Notifications</i>
+			  </li>
+		  
+			  <li>
+				  <i class="fa-solid fa-message">&nbsp; Messages</i>
+			  </li>
+		  
+		</ul>
+	  </div>
+
+	  <!-- I didn't wrote this code to the layout container because I needed this to be FIXED position through the scroll -->
+
+    <div class="layout-container">
+      <!-- Layout goes here -->
+
+        
+        <div class="middle">
+			<ol>
+				
+			</ol>
+			<br>
+			<br>	
+			<button class="button-load"> 
+	Load more
+	</button>
+
+			<script>
+				var table = document.querySelector('ol');
+				fetch('./data.json')
+				.then(res => res.json())
+				.then(data => {
+					for (let i = 0; i < 4; i++)  {
+						const item = data[i];
+						table.innerHTML += `
+					
+						<li> <img src="${item.image}"> </li>
+						<li> ${item.caption}</li>
+						<li> ${item.name}</li>
+						<li><img src="${item.profile_image}", style="border-radius: 100%" height="60px" width="60px"> </li>
+						<li><i class="fa-solid fa-heart"> ${item.likes} </i> Likes</li>
+						
+					`;
+					}
+				});
+			</script>
+        </div>
+
+        
+      </div>
+
+	  <script>
+
+	function toggleDarkMode() {
+ 	 var body = document.body;
+ 	 body.classList.toggle("dark-mode");
+	}
+		var changeTheme = document.getElementById("changeTheme");
+		changeTheme.addEventListener("click", toggleDarkMode);
+	  </script>
+    </div>
+
+  </body>
+</html>
